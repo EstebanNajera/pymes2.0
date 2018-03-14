@@ -4,32 +4,34 @@
 <div class="container">
 <h2>Registros</h2>          
 <table class="table table-hover">
+
   <thead>
     <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Email</th>
+      <th>Nombre</th>
+      <th>Apellido paterno</th>
+      <th>Apellido materno</th>
+      <th>Correo</th>
+      <th>Rol</th>
+      <!--th>Perfil</th-->
     </tr>
   </thead>
+
   <tbody>
+
+    @foreach($estudiantes as $item)
     <tr>
-      <td>John</td>
-      <td>Doe</td>
-      <td>john@example.com</td>
+      <td>{{$item->nombre}}</td>
+      <td>{{$item->apellidoP}}</td>
+      <td>{{$item->apellidoM}}</td>
+      <td>{{$item->email}}</td>
+      <td>{{$item->id_role}}</td>
+      <!--td><a href="/Administrador/{{$item->id}}/mostrar" </a>Detalles</td-->
     </tr>
-    <tr>
-      <td>Mary</td>
-      <td>Moe</td>
-      <td>mary@example.com</td>
-    </tr>
-    <tr>
-      <td>July</td>
-      <td>Dooley</td>
-      <td>july@example.com</td>
-    </tr>
+    @endforeach
   </tbody>
+
   <a href="">Agregar Preguntas</a>
   <a href="{{ route('register') }}">Agregar Usuario</a>
 </table>
-</div>
+</div> 
 @endsection

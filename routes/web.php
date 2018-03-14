@@ -15,9 +15,14 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/Registros', function () {
-    return view('alumnos');
-});
+//Route::get('/Registros', function () {
+  //  return view('alumnos');
+//});
+
+Route::get('/Administrador','userController@index');
+Route::get('/Administrador/{id}/mostrar','userController@show');
+
+
 
 Auth::routes();
 
