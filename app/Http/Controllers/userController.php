@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Users;
+use App\User;
 
 class userController extends Controller
 {
@@ -11,7 +11,7 @@ class userController extends Controller
 
     public function index()
     {
-    	$users = Users::all('id','nombre','apellidoP','apellidoM','email','id_role');
+    	$users = User::all('id','nombre','apellidoP','apellidoM','email','id_role');
 
     	return view('alumnos')->with('estudiantes', $users);
     }
@@ -19,28 +19,22 @@ class userController extends Controller
 
     public function create()
 	{
-		return view('test.createUsers');
+		return view('createUsers');
 
 	}
 	public function store(userrsFromRequest $request)
 	{
-		$user = new User;
-		$user->nombre=$request->get('nombre');
-		$user->apellidoM=$request->get('apellidoM');
-		$user->apellidoP=$request->get('apellidoP');
-		$user->email=$request->get('email');
-		$user->password=$request->get('password');
-		$user->save();
 
+		User::create($request->all());
 		return Redirect::to('test');
 	}
 	public function show($id)
 	{
-		return view('test.show',['user'=>user::findOrFail($id)]);
+		return view('view',['user'=>user::findOrFail($id)]);
 	}
 	public function edit($id)
 	{
-		return view('test.edit',['user'=>user::findOrFail($id)]);
+		return view('edit',['user'=>user::findOrFail($id)]);
 	}
 	public function update(userrsFromRequest $request,$id)
 	{
@@ -56,8 +50,7 @@ class userController extends Controller
 	}
 	public function destroy($id)
 	{
-		$user = User::findOrFail($id);
-		$user->update();
-		return Redirect::to('test');
+		User::findOrFail($id)->delete();
+		return redirect('/Administrador');
 	}
 }

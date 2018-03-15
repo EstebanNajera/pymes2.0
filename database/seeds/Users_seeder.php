@@ -28,8 +28,8 @@ class Users_seeder extends Seeder
         		'email' => $faker->email,
         		'password' => $faker->numberBetween(1000000,9999999),
         		'id_role' => $faker->randomElement(array(1,2,3),
-        		'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),
-        		'created_at' => $faker->dateTimeBetween('-3 years', 'now'),
+        		'created_at' => date('Y-m-d H:m:s'),
+                'updated_at' => date('Y-m-d H:m:s')
 
 
         	 ]);
