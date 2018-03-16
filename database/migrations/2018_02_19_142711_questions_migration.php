@@ -17,7 +17,8 @@ class QuestionsMigration extends Migration
             $table->increments('id_question');
             $table->text('question');
             $table->integer('id_category')->length(11)->unsigned();
-            $table->integer('id_area')->length(11)->unsigned();
+            $table->enum('type',['Binary','Open','MultipleC']);
+            $table->boolean('status')
             $table->timestamps();
         });
     }

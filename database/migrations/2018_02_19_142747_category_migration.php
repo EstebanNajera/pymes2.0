@@ -15,7 +15,8 @@ class CategoryMigration extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id_category');
-            $table->enum('type',['Binary','Open','MultipleC']);
+            $table->integer('id_area')->length(11)->unsigned();
+            $table->text('category')
             $table->timestamps();
         });
     }

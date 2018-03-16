@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AreaMigration extends Migration
+class CreateClosedAnswersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AreaMigration extends Migration
      */
     public function up()
     {
-        Schema::create('areas', function (Blueprint $table) {
-            $table->increments('id_area');
-            $table->text('area');
+        Schema::create('closed_answers', function (Blueprint $table) {
+            $table->increments('id');
             $table->timestamps();
+            $table->integer('id_question')->length(11)->unsigned();
+            $table->text('closed_answer');
         });
     }
 
@@ -27,6 +28,6 @@ class AreaMigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('areas');
+        Schema::dropIfExists('closed_answers');
     }
 }
