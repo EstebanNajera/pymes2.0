@@ -18,7 +18,7 @@ class QuestionsMigration extends Migration
             $table->text('question');
             $table->integer('id_category')->length(11)->unsigned();
             $table->enum('type',['Binary','Open','MultipleC']);
-            $table->boolean('status')
+            $table->boolean('status');
             $table->timestamps();
         });
     }

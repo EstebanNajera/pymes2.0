@@ -16,7 +16,7 @@ class CategoryMigration extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id_category');
             $table->integer('id_area')->length(11)->unsigned();
-            $table->text('category')
+            $table->text('category');
             $table->timestamps();
         });
     }
