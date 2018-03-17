@@ -22,6 +22,8 @@ Route::get('/', function () {
 Route::get('/Administrador','userController@index');
 Route::get('/Administrador/{id}/mostrar','userController@show');
 
+Route::get('/questions/create', 'questionController@create');
+
 
 Route::resource('/users','userController');
 
