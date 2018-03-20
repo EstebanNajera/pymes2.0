@@ -13,28 +13,27 @@ class Users_seeder extends Seeder
      */
     public function run()
     {
-        //
+        
 
         $faker = Faker\Factory::create();
 
-        for ($i=0; $i < 50; $i++) { 
+        for ($i=0; $i < 100; $i++) { 
         	# code...
 
-        	App\Users::create([
+                DB::table('users')->insert([
 
         		'nombre' => $faker->firstName,
         		'apellidoM' => $faker->lastName,
         		'apellidoP' => $faker->lastName,
         		'email' => $faker->email,
-        		'password' => $faker->numberBetween(1000000,9999999),
-        		'id_role' => $faker->randomElement(array(1,2,3),
-        		'created_at' => date('Y-m-d H:m:s'),
-                'updated_at' => date('Y-m-d H:m:s')
+        		'password' => $faker->password,
+        		'id_role' => $faker->randomElement($array = array ('1','2','3')),
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now()
 
 
         	 ]);
-
-
         }
+
     }
 }

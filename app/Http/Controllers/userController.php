@@ -11,9 +11,11 @@ class userController extends Controller
 
     public function index()
     {
-    	$users = User::all('id','nombre','apellidoP','apellidoM','email','id_role');
+    	//$users = User::all('id','nombre','apellidoP','apellidoM','email','id_role')->paginate();
 
-    	return view('alumnos')->with('estudiantes', $users);
+    	$users = User::orderBy('id','nombre','apellidoP','apellidoM','email','id_role')->paginate(10);
+
+    	return view('alumnos',compact('users'))->with('estudiantes', $users);
     }
 
 
