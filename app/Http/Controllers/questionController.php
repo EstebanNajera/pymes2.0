@@ -29,13 +29,13 @@ class questionController extends Controller
      */
     public function create()
     {
-        // Obtener todas las categorias
-        $categories = Category::all();
 
         // Obtener todas las areas con al menos una categoría
-        $areas = Area::join('categories', 'areas.id_area', '=', 'categories.id_area')
-            ->select('areas.area', 'areas.id_area')
-            ->distinct()
+        $categories = Area::join('categories', 'areas.id_area', '=', 'categories.id_area')
+            ->select('areas.area', 'areas.id_area', 'categories.category', 'categories.id_category')
+            ->orderBy('areas.area')
+            ->orderBy('categories.category')
+            ->groupBy('areas.id_area', 'areas.area', 'categories.category', 'categories.id_category')
             ->get();
 
         return view('createQuestions', compact('areas', 'categories'));
