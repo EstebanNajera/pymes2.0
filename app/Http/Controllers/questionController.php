@@ -19,7 +19,9 @@ class questionController extends Controller
      */
     public function index()
     {
-        //
+        $questions = self::getQuestions();
+
+        return view('questions.questions', compact('questions'));
     }
 
     /**
@@ -32,13 +34,12 @@ class questionController extends Controller
 
         // Obtener todas las areas con al menos una categoría
         $categories = Area::join('categories', 'areas.id_area', '=', 'categories.id_area')
-            ->select('areas.area', 'areas.id_area', 'categories.category', 'categories.id_category')
             ->orderBy('areas.area')
             ->orderBy('categories.category')
             ->groupBy('areas.id_area', 'areas.area', 'categories.category', 'categories.id_category')
             ->get();
 
-        return view('createQuestions', compact('areas', 'categories'));
+        return view('questions.createQuestions', compact('areas', 'categories'));
     }
 
     /**
@@ -56,7 +57,9 @@ class questionController extends Controller
             'status' => ($request -> status == null) ? 0:1
         ]);
 
-        return view('Home');
+        $questions = self::getQuestions();
+
+        return view('questions.questions', compact('questions'));
     }
 
     /**
@@ -102,5 +105,11 @@ class questionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function getQuestions(){
+        return Question::join('categories', 'questions.id_category', '=', 'categories.id_category')
+            ->join('areas', 'areas.id_area', '=', 'categories.id_area')
+            ->get();
     }
 }

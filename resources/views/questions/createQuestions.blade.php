@@ -4,6 +4,7 @@
     <div class="offset-md-2 col-md-8">
 	    <form method="POST" action="{{ route('questions.store') }}">
 	    	{{ csrf_field() }}
+	    	
 			<div class="card border-info">
 				<div class="card-header bg-info text-white"><b>Insertar pregunta</b></div>
 				<div class="card-body col-md-10 offset-md-1">
