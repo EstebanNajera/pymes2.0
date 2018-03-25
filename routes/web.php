@@ -22,10 +22,8 @@ Route::get('/', function () {
 Route::get('/Administrador','userController@index');
 Route::get('/Administrador/{id}/mostrar','userController@show');
 
-
 Route::resource('/users','userController');
-
-
+Route::resource('/questions','questionController');
 
 Auth::routes();
 
