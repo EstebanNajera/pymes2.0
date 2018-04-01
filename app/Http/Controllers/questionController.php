@@ -19,7 +19,9 @@ class questionController extends Controller
      */
     public function index()
     {
-        $questions = self::getQuestions();
+        $questions = Question::join('categories', 'questions.id_category', '=', 'categories.id_category')
+            ->join('areas', 'areas.id_area', '=', 'categories.id_area')
+            ->get();
 
         return view('questions.questions', compact('questions'));
     }
@@ -57,9 +59,7 @@ class questionController extends Controller
             'status' => ($request -> status == null) ? 0:1
         ]);
 
-        $questions = self::getQuestions();
-
-        return view('questions.questions', compact('questions'));
+        return redirect('questions');
     }
 
     /**
@@ -104,12 +104,8 @@ class questionController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        Question::findOrFail($id)->delete();
 
-    private function getQuestions(){
-        return Question::join('categories', 'questions.id_category', '=', 'categories.id_category')
-            ->join('areas', 'areas.id_area', '=', 'categories.id_area')
-            ->get();
+        return redirect('questions');
     }
 }

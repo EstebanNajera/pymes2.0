@@ -13,7 +13,7 @@
 					</div>
 
 					<div class="row form-group">
-						<input class="form-control" type="text" name="question" placeholder="Introduzca su pregunta aquí">
+						<input class="form-control" type="text" name="question" placeholder="Introduzca su pregunta aquí" required>
 					</div>
 
 					<div class="row form-group">

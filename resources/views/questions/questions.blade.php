@@ -11,8 +11,6 @@
 	    				<th>Tipo</th>
 	    				<th>Estado</th>
 	    				<th></th>
-	    				<th></th>
-	    				<th></th>
 	    			</tr>
 	    		</thead>
 	    		@foreach($questions as $question)
@@ -27,9 +25,16 @@
 	    		    		}}
 	    		    	</td>
 	    		    	<td>{{$question -> status === 1 ? 'Activo':'Inactivo'}}</td>
-	    		    	<td><input type="submit" class="btn btn-info" value="Ver"></td>
-	    		    	<td><input type="submit" class="btn btn-success" value="Editar"></td>
-	    		    	<td><input type="submit" class="btn btn-danger" value="Eliminar"></td>
+	    		    	{{-- <td><input type="submit" class="btn btn-info" value="Ver"></td> --}}
+	    		    	{{-- <td><input type="submit" class="btn btn-success" value="Editar"></td> --}}
+	    		    	<td>
+	    		    		<form method="POST" action="{{ route('questions.destroy', $question -> id_question) }}">
+	    		    			{{ csrf_field() }}
+	    		    			{{ method_field('DELETE') }}
+
+	    		    			<input type="submit" class="btn btn-danger" value="Eliminar">
+	    		    		</form>
+	    		    	</td>
 	    		    </tr>
 	    		@endforeach
 	    	</table>
