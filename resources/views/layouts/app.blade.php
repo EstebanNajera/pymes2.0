@@ -66,5 +66,57 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript">
+        $("#agregar").click(function(){ 
+            var contenedor, numAux, fila, campo, boton;
+
+            contenedor = $("#closedAnswersL"); 
+            numAux = $("#closedAnswersL > div").length;
+
+            if (numAux < 26) {
+                campo ='<div class="col-md-8"><input type="text" class="form-control" name="opciones[]" placeholder="Inciso '+ String.fromCharCode(numAux + 65)+'"></div>';
+
+                boton ='<div class="col-md-4"><input type="button" class="btn btn-danger form-control" name="borrar[]" value="Eliminar"></div>';
+
+                fila = '<div class="row form-group col-md-12" id="r_' + numAux + '">' + campo + boton + '</div>';
+
+                $(contenedor).append(fila);
+            } else{
+                alert('Ha superado el limite de incisos');
+            }
+        });
+
+        $("input[type=radio]").click(function(){
+            var contenedor = $("#closedAnswersL");
+            var boton = $("#closedAnswersB");
+
+            if($(this).val() === "3" && $(this).prop("checked", true)){
+                contenedor.prop("style", "display: visible;");
+                boton.prop("style", "display: visible;");
+                $("#closedAnswersL > div > div > :text").prop("required", true);
+            }else{
+                contenedor.prop("style", "display: none;");
+                boton.prop("style", "display: none;");
+                $("#closedAnswersL > div > div > :text").prop("required", false);
+            }
+        });
+
+        $("#closedAnswersL").on("click", ".btn-danger", function(){
+            var id, numAux, padre;
+            numAux = $("#closedAnswersL > div").length;
+
+            if(numAux > 2){
+                id = Number($(this).parent().parent().prop("id").substring(2));
+                $("#r_" + id).remove();
+
+                for(var i = id; i + 1 < numAux; i++){
+                    $("#r_" + (i + 1) + " > div > :text").prop("placeholder", "Inciso " + String.fromCharCode(i + 65));
+                    $("#r_" + (i + 1)).prop("id", "r_" + i);
+                }
+            }else{
+                alert('Como mínimos dos incisos');
+            }
+        });
+    </script>
 </body>
 </html>

@@ -26,6 +26,30 @@
 				        <label class="col-md-5 radio-inline"><input type="radio" name="type" value="3">Cerrada de opción múltiple</label>
 					</div>
 
+					<div class="row form-group" id="closedAnswersL" style="display: none;">
+						<div class="row form-group col-md-12" id="r_0">
+							<div class="col-md-8">
+								<input type="text" class="form-control" name="opciones[]" placeholder="Inciso A">
+							</div>
+							<div class="col-md-4">
+								<input type="button" class="btn btn-danger form-control" name="borrar[]" value="Eliminar">
+							</div>
+						</div>
+
+						<div class="row form-group col-md-12" id="r_1">
+							<div class="col-md-8">
+								<input type="text" class="form-control" name="opciones[]" placeholder="Inciso B">
+							</div>
+							<div class="col-md-4">
+								<input type="button" class="btn btn-danger form-control" name="borrar[]" value="Eliminar">
+							</div>
+						</div>
+					</div>
+
+					<div class="row form-group" id="closedAnswersB" style="display: none;">
+						<input type="button" class="btn btn-info" id="agregar" value="Agregar"></input>
+					</div>
+
 					<div class="row form-group">
 						<div class="col-md-12">
 							<div class="form-group">
