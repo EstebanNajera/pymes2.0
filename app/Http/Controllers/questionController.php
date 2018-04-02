@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Area;
 
-use App\Category;
-
 use App\Question;
+
+use App\Closed_answer;
 
 use Illuminate\Http\Request;
 
@@ -59,6 +59,17 @@ class questionController extends Controller
             'status' => ($request -> status == null) ? 0:1
         ]);
 
+        if($request -> type === "3"){
+            $id = Question::all() -> last() -> id_question;
+
+            foreach ($request -> opciones as $inciso) {
+                Closed_answer::create([
+                    'id_question' => $id,
+                    'closed_answer' => $inciso
+                ]);
+            }
+        }
+
         return redirect('questions');
     }
 
@@ -104,7 +115,7 @@ class questionController extends Controller
      */
     public function destroy($id)
     {
-        Question::findOrFail($id)->delete();
+        Question::findOrFail($id) -> delete();
 
         return redirect('questions');
     }
