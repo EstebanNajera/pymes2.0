@@ -21,9 +21,9 @@
 					</div>
 
 					<div class="row text-center form-group">
-					    <label class="col-md-3 radio-inline"><input type="radio" name="type" value="2" checked>Abierta</label>
-					    <label class="col-md-4 radio-inline"><input type="radio" name="type" value="1">Cerrada simple</label>
-				        <label class="col-md-5 radio-inline"><input type="radio" name="type" value="3">Cerrada de opción múltiple</label>
+					    <label class="col-md-3 radio-inline"><input type="radio" name="typeQuestion" value="2" checked>Abierta</label>
+					    <label class="col-md-4 radio-inline"><input type="radio" name="typeQuestion" value="1">Cerrada simple</label>
+				        <label class="col-md-5 radio-inline"><input type="radio" name="typeQuestion" value="3">Cerrada de opción múltiple</label>
 					</div>
 
 					<div class="row form-group" id="closedAnswersL" style="display: none;">
@@ -47,7 +47,7 @@
 					</div>
 
 					<div class="row form-group" id="closedAnswersB" style="display: none;">
-						<input type="button" class="btn btn-info" id="agregar" value="Agregar"></input>
+						<input type="button" class="btn btn-info" id="agregarInciso" value="Agregar"></input>
 					</div>
 
 					<div class="row form-group">

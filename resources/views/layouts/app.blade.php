@@ -67,7 +67,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript">
-        $("#agregar").click(function(){ 
+        $("#agregarInciso").click(function(){ 
             var contenedor, numAux, fila, campo, boton;
 
             contenedor = $("#closedAnswersL"); 
@@ -86,7 +86,7 @@
             }
         });
 
-        $("input[type=radio]").click(function(){
+        $(":radio[name=typeQuestion]").click(function(){
             var contenedor = $("#closedAnswersL");
             var boton = $("#closedAnswersB");
 
