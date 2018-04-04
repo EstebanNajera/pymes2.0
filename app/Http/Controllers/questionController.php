@@ -55,7 +55,7 @@ class questionController extends Controller
             'status' => ($request -> status == null) ? 0:1
         ]);
 
-        if($request -> type === "3"){
+        if($request -> typeQuestion === "3"){
             $id = Question::all() -> last() -> id_question;
 
             foreach ($request -> opciones as $inciso) {
