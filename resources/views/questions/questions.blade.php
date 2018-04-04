@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="offset-md-2 col-md-8">
-	    	<table class="table table-striped">
+	    	<table class="table table-striped" id="tbQuestionsList">
 	    		<thead class="thead-dark">
 	    			<tr>
 	    				<th>Pregunta</th>
