@@ -27,10 +27,6 @@
 				        <label class="col-md-5 radio-inline"><input type="radio" name="typeQuestion" value="3" {{ $question -> type === "MultipleC" ? "checked" : "" }}>Cerrada de opción múltiple</label>
 					</div>
 
-					<div class="row form-group" id="closedAnswersB" style="{{ $question -> type === "MultipleC" ? "display: visible;" : "display: none;" }}">
-						<input type="button" class="btn btn-success btn-xs mx-auto" id="agregarInciso" value="Agregar"></input>
-					</div>
-
 					<div class="row form-group" id="closedAnswersL" style="{{ $question -> type === "MultipleC" ? "display: visible;" : "display: none;" }}">
 						@if( $options -> count() === 0 )
 						    <div class="row form-group w-100" id="r_0">
@@ -63,6 +59,10 @@
 						    @endfor
 						@endif
 				    </div>
+
+					<div class="row form-group" id="closedAnswersB" style="{{ $question -> type === "MultipleC" ? "display: visible;" : "display: none;" }}">
+						<input type="button" class="btn btn-secondary btn-xs mx-auto" id="addClause" value="Agregar"></input>
+					</div>
 
 					<div class="row form-group">
 						<div class="col-md-10">

@@ -30,7 +30,7 @@
     		    		<a href="{{ route('questions.edit', $question -> id_question) }}" class="btn btn-success" >Editar</a>
     		    	</td>
     		    	<td>
-    		    		<form  class="d-inline" method="POST" action="{{ route('questions.destroy', $question -> id_question) }}">
+    		    		<form  class="d-inline" name="deleteQuestion[]" method="POST" action="{{ route('questions.destroy', $question -> id_question) }}">
     		    			{{ csrf_field() }}
     		    			{{ method_field('DELETE') }}
 

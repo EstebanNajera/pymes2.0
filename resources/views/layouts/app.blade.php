@@ -80,7 +80,7 @@
             });
         });
 
-        $("#agregarInciso").click(function(){ 
+        $("#addClause").click(function(){ 
             var contenedor, numAux, fila, campo, boton;
 
             contenedor = $("#closedAnswersL"); 
@@ -120,14 +120,31 @@
 
             if(numAux > 2){
                 id = Number($(this).parent().parent().prop("id").substring(2));
-                $("#r_" + id).remove();
 
-                for(var i = id; i + 1 < numAux; i++){
-                    $("#r_" + (i + 1) + " > div > :text").prop("placeholder", "Inciso " + String.fromCharCode(i + 65));
-                    $("#r_" + (i + 1)).prop("id", "r_" + i);
+                var estaSeguro = true;
+
+                if($("#r_" + id + " :text").val().trim() !== ''){
+                    estaSeguro = confirm('Este campo posee texto ¿Esta seguro que quiere borrarlo?');
+                }
+
+                if(estaSeguro){
+                    $("#r_" + id).remove();
+
+                    for(var i = id; i + 1 < numAux; i++){
+                        $("#r_" + (i + 1) + " > div > :text").prop("placeholder", "Inciso " + String.fromCharCode(i + 65));
+                        $("#r_" + (i + 1)).prop("id", "r_" + i);
+                    }
                 }
             }else{
                 alert('Como mínimos dos incisos');
+            }
+        });
+
+        $("#tbQuestionsList tr td form").on('submit', function(e){
+            var estaSeguro = confirm("¿Esta seguro que desea eliminar esta pregunta? Se eliminará toda la información relacionada");
+
+            if(!estaSeguro){
+                e.preventDefault();
             }
         });
     </script>

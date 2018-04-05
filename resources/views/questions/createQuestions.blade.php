@@ -26,10 +26,6 @@
 				        <label class="col-md-5 radio-inline"><input type="radio" name="typeQuestion" value="3">Cerrada de opción múltiple</label>
 					</div>
 
-					<div class="row form-group" id="closedAnswersB" style="display: none;">
-						<input type="button" class="btn btn-success mx-auto" id="agregarInciso" value="Agregar"></input>
-					</div>
-
 					<div class="row form-group" id="closedAnswersL" style="display: none;">
 						<div class="row form-group w-100" id="r_0">
 							<div class="col-md-8">
@@ -48,6 +44,10 @@
 								<input type="button" class="btn btn-danger btn-block" name="borrar[]" value="Eliminar">
 							</div>
 						</div>
+					</div>
+
+					<div class="row form-group" id="closedAnswersB" style="display: none;">
+						<input type="button" class="btn btn-secondary mx-auto" id="addClause" value="Agregar"></input>
 					</div>
 
 					<div class="row form-group">
