@@ -89,9 +89,9 @@
             if (numAux < 26) {
                 campo ='<div class="col-md-8"><input type="text" class="form-control" name="opciones[]" placeholder="Inciso '+ String.fromCharCode(numAux + 65)+'"></div>';
 
-                boton ='<div class="col-md-4"><input type="button" class="btn btn-danger form-control" name="borrar[]" value="Eliminar"></div>';
+                boton ='<div class="col-md-4"><input type="button" class="btn btn-danger btn-block" name="borrar[]" value="Eliminar"></div>';
 
-                fila = '<div class="row form-group col-md-12" id="r_' + numAux + '">' + campo + boton + '</div>';
+                fila = '<div class="row form-group w-100" id="r_' + numAux + '">' + campo + boton + '</div>';
 
                 $(contenedor).append(fila);
             } else{
