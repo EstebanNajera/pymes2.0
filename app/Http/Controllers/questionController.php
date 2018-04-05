@@ -199,6 +199,7 @@ class questionController extends Controller
     public function destroy($id)
     {
         Question::findOrFail($id) -> delete();
+        Closed_answer::where('id_question', $id) -> delete();
 
         return redirect('questions');
     }
