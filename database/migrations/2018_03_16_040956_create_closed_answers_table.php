@@ -14,7 +14,7 @@ class CreateClosedAnswersTable extends Migration
     public function up()
     {
         Schema::create('closed_answers', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_closed_answer');
             $table->timestamps();
             $table->integer('id_question')->length(11)->unsigned();
             $table->text('closed_answer');

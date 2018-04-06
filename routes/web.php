@@ -16,9 +16,17 @@ Route::get('/', function () {
 });
 Route::get('/Administrador','userController@index');
 Route::get('/Administrador/{id}/mostrar','userController@show');
+
+
+
 Route::resource('/users','userController');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+
+Route::resource('/users','userController');
+Route::resource('/questions','questionController');
 
 
