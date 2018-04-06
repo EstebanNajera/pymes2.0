@@ -11,7 +11,8 @@
             <th>Apellido paterno</th>
             <th>Apellido materno</th>
             <th>Correo</th>
-            <th>Perfil</th>
+            <th>Equipo</th>
+            <th></th>
          </tr>
       </thead>
       <tbody>
@@ -20,6 +21,7 @@
             <td>{{$item->apellidoP}}</td>
             <td>{{$item->apellidoM}}</td>
             <td>{{$item->email}}</td>
+            <td>{{$item->equipo}}</td>
             <td>
                <div class="d-inline">
                   <a class="btn btn-info" href="{{route('users.show',$item->id)}}" >Ver</a>
@@ -59,10 +61,13 @@
       </tbody>
       <!--a href="{{route('register')}}">Agregar alumno</a-->
       <!--a href="{{ route('register') }}" class="btn btn-info">Agregar Usuario</a-->
-      <!-- Button trigger modal -->
-      <a class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter">Agregar Usuario</a>
+      <!-- Button trigger modal --> 
+
+
    </table>
    {{ $estudiantes->render() }}
 </div>
+
+<!--a class="btn btn-info" href="">Registrar usuario</a-->
 <script src="{{ asset('js/app.js') }}"></script>
 @endsection

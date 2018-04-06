@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('apellidoM',150);
             $table->string('apellidoP',150);
             $table->string('email',100)->unique();
-            $table->string('password');
+            $table->string('password'); 
             $table->integer('id_role')->unsigned();
             $table->foreign('id_role')->references('id_role')->on('roles');
         });

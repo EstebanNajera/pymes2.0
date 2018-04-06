@@ -27,6 +27,7 @@ class Users_seeder extends Seeder
         		'apellidoP' => $faker->lastName,
         		'email' => $faker->email,
         		'password' => $faker->password,
+                'equipo' => $faker->randomElement($array = array('Pymes','Software','Civil','Ambiental','Manofactura','Telematica')),
         		'id_role' => $faker->randomElement($array = array ('1','2','3')),
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
